@@ -17,6 +17,10 @@ onready var _entity_placer := $GameWorld/YSort/EntityPlacer
 onready var _player := $GameWorld/YSort/Player
 onready var _flat_entities := $GameWorld/FlatEntities
 
+export var simulation_speed := 1.0/30.0
+
+onready var _power_system := PowerSystem.new()
+
 func _ready() -> void:
 	_entity_placer.setup(_tracker, _ground, _flat_entities, _player)
 
@@ -26,3 +30,9 @@ func _ready() -> void:
 	# Iterate over each of those cells and replace them with the invisible barrier.
 	for cellv in barriers:
 		_ground.set_cellv(cellv, INVISIBLE_BARRIER_ID)
+
+	$Timer.start()
+
+
+func _on_Timer_timeout() -> void:
+	Events.emit_signal("systems_ticked", simulation_speed)
