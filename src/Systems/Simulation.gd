@@ -7,11 +7,18 @@ extends Node
 const BARRIER_ID := 1
 const INVISIBLE_BARRIER_ID := 2
 
+var _tracker := EntityTracker.new()
+
 # The GroundTiles node is the tilemap that holds our floor, where we want to replace
 # the purple blocks with invisible barriers.
 onready var _ground := $GameWorld/GroundTiles
 
+onready var _entity_placer := $GameWorld/YSort/EntityPlacer
+onready var _player := $GameWorld/YSort/Player
+
 func _ready() -> void:
+	_entity_placer.setup(_tracker, _ground, _player)
+	
 	# Get an array of all tile coordinates that use the purple barrier block.
 	var barriers: Array = _ground.get_used_cells_by_id(BARRIER_ID)
 	
