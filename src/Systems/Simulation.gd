@@ -15,9 +15,10 @@ onready var _ground := $GameWorld/GroundTiles
 
 onready var _entity_placer := $GameWorld/YSort/EntityPlacer
 onready var _player := $GameWorld/YSort/Player
+onready var _flat_entities := $GameWorld/FlatEntities
 
 func _ready() -> void:
-	_entity_placer.setup(_tracker, _ground, _player)
+	_entity_placer.setup(_tracker, _ground, _flat_entities, _player)
 
 	# Get an array of all tile coordinates that use the purple barrier block.
 	var barriers: Array = _ground.get_used_cells_by_id(BARRIER_ID)
