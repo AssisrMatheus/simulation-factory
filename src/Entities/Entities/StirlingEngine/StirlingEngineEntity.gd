@@ -10,6 +10,7 @@ const SHUTDOWN_TIME := 3.0
 onready var animation_player := $AnimationPlayer
 onready var tween := $Tween
 onready var shaft := $PistonShaft
+onready var power := $PowerSource
 
 func _ready() -> void:
 	# Play the animation, which loops.
@@ -21,4 +22,6 @@ func _ready() -> void:
 
 	# We also animate the color of the `shaft` to enhance the animation, going from white to green.
 	tween.interpolate_property(shaft, "modulate", Color.white, Color(0.5, 1, 0.5), BOOTUP_TIME)
+
+	tween.interpolate_property(power, "efficiency", 0, 1, BOOTUP_TIME)
 	tween.start()

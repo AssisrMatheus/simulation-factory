@@ -50,7 +50,7 @@ func _ready() -> void:
 	# Use the existing blueprint to act as a key for the entity scene, so we can instance
 	# entities given their blueprint.
 	Library[Library.StirlingEngine] = preload("res://Entities/Entities/StirlingEngine/StirlingEngineEntity.tscn")
-	Library[Library.Wire] = preload("res://Entities/Entities/WireEntity.tscn")
+	Library[Library.Wire] = preload("res://Entities/Entities/Wire/WireEntity.tscn")
 
 func _process(_delta: float) -> void:
 	var has_placeable_blueprint: bool = _blueprint and _blueprint.placeable
