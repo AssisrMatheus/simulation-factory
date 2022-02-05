@@ -14,11 +14,11 @@ onready var shaft := $PistonShaft
 func _ready() -> void:
 	# Play the animation, which loops.
 	animation_player.play("Work")
-	
+
 	# We use a tween to control the animation player's `playback_speed`.
 	# It goes up, making it feel like the engine is slowly starting up until it reaches its maximum speed.
 	tween.interpolate_property(animation_player, "playback_speed", 0, 1, BOOTUP_TIME)
-	
+
 	# We also animate the color of the `shaft` to enhance the animation, going from white to green.
 	tween.interpolate_property(shaft, "modulate", Color.white, Color(0.5, 1, 0.5), BOOTUP_TIME)
 	tween.start()

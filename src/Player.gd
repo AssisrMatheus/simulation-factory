@@ -4,7 +4,7 @@ extends KinematicBody2D
 export var movement_speed := 200.0
 
 func _physics_process(_delta: float) -> void:
-	# We move the player at a constant speed based on the input direction. 
+	# We move the player at a constant speed based on the input direction.
 	# The `_get_direction()` function calculates the move direction based on the player's input.
 	var direction := _get_direction()
 	move_and_slide(direction * movement_speed)

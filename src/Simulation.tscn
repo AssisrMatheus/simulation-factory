@@ -30,4 +30,6 @@ script = ExtResource( 5 )
 [node name="StirlingEngineEntity" parent="GameWorld/YSort/EntityPlacer" instance=ExtResource( 4 )]
 position = Vector2( 154, -5 )
 
+[node name="Timer" type="Timer" parent="GameWorld/YSort/EntityPlacer"]
+
 [node name="Player" parent="GameWorld/YSort" instance=ExtResource( 2 )]

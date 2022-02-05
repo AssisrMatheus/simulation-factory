@@ -12,10 +12,10 @@ func place_entity(entity, cellv: Vector2) -> void:
 	# If the cell is already taken, refuse to add it again.
 	if entities.has(cellv):
 		return
-	
+
 	# Add the entity keyed by its coordinates on the map.
 	entities[cellv] = entity
-	
+
 	# Emit the signal about the new entity.
 	Events.emit_signal("entity_placed", entity, cellv)
 
@@ -25,7 +25,7 @@ func remove_entity(cellv: Vector2) -> void:
 	# Refuse to function if the entity does not exist.
 	if not entities.has(cellv):
 		return
-	
+
 	# Get the entity, queue it for deletion, and emit a signal about
 	# its removal.
 	var entity = entities[cellv]
